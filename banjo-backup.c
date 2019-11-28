@@ -4,7 +4,8 @@
 
 char* are_you_playing_banjo(const char* name)
 {
-   char* c = (char *)calloc(strlen(name),sizeof(char));
+   int size = strlen(name);
+   char* c = (char *)calloc(size+1,sizeof(char));
    strcpy(c,name);
    if (c[0] == 'r' || c[0] == 'R')
 	{
@@ -14,6 +15,8 @@ char* are_you_playing_banjo(const char* name)
 	{
      strcat(c," does not play banjo");
 	}
+   int end = strlen(c);
+   c[end] = '\0';
    return c;
 }
 
